@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b567ehgk8il6r"]
+
+[ext_resource type="Script" uid="uid://co41br8jnluxa" path="res://Scenes/SpawnTimer.cs" id="1_5k16l"]
+
+[node name="SpawnTimer" type="Timer"]
+script = ExtResource("1_5k16l")

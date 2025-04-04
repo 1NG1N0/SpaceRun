@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1s122qva26j1"]
+
+[ext_resource type="Script" uid="uid://dq3bgn6nuxjqf" path="res://Scenes/UfoSpawner.cs" id="1_typyy"]
+[ext_resource type="PackedScene" uid="uid://c1hjhepb3tmqe" path="res://Scenes/ufo.tscn" id="2_tsh2j"]
+[ext_resource type="PackedScene" uid="uid://b567ehgk8il6r" path="res://Scenes/spawn_timer.tscn" id="3_eydok"]
+
+[node name="UfoSpawner" type="Node2D"]
+script = ExtResource("1_typyy")
+UfoScene = ExtResource("2_tsh2j")
+
+[node name="SpawnTimer" parent="." instance=ExtResource("3_eydok")]
+wait_time = 9.0

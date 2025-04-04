@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfsysvm3q5l2e"]
+
+[ext_resource type="Script" uid="uid://7tubaye5hw3p" path="res://Scenes/StartScreen.cs" id="1_mtlf8"]
+[ext_resource type="FontFile" uid="uid://dsx61wy7ucoir" path="res://Assets/Fonts/andina.ttf" id="2_nqnrp"]
+[ext_resource type="Texture2D" uid="uid://hsxtbmu04yfk" path="res://Assets/Invaders/Invader1-1.png" id="3_5a7ho"]
+[ext_resource type="Texture2D" uid="uid://bdkw8f27u0q54" path="res://Assets/Invaders/Invader2-1.png" id="4_ssogg"]
+[ext_resource type="Texture2D" uid="uid://c815jhymftxyg" path="res://Assets/Invaders/Invader3-1.png" id="5_akot6"]
+
+[node name="Start_Screen" type="CanvasLayer"]
+script = ExtResource("1_mtlf8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.5
+offset_top = -127.0
+offset_right = 305.5
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_nqnrp")
+theme_override_font_sizes/font_size = 60
+text = "Space Run
+O Jogo da Corrida Espacial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="InvaderContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Textura1" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("3_5a7ho")
+
+[node name="Label1" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqnrp")
+text = "- 10 Points"
+
+[node name="InvaderContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Texture2" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer2"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("4_ssogg")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqnrp")
+text = "- 20 Points"
+
+[node name="InvaderContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer3"]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("5_akot6")
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/InvaderContainer3"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqnrp")
+text = "- 40 Points"
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nqnrp")
+theme_override_font_sizes/font_size = 46
+text = "PLAY"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
