@@ -12,6 +12,8 @@ public partial class LifeManager : Node
     private Player player;
     private readonly PackedScene playerScene = GD.Load<PackedScene>("res://Scenes/player.tscn");
     private CenterContainer gameoverContainer;
+    private Button restartButton;
+    private InvaderSpawn invaderSpawn;
 
     public override void _Ready()
     {
@@ -20,9 +22,12 @@ public partial class LifeManager : Node
         // Obtém o nó Player
         player = GetNode<Player>("../Player");
         gameoverContainer = GetNode<CenterContainer>("../GameBoxContainer");
+        restartButton = GetNode<Button>("../GameBoxContainer/GameOverBox/RestartButton");
+        invaderSpawn = GetNode<InvaderSpawn>("../InvaderSpawn");
 
         // Conecta o sinal PlayerDestroyed ao método OnPlayerDestroyed
         player.PlayerDestroyed += OnPlayerDestroyed;
+        restartButton.Pressed += OnRestartButtonPressed;
     }
 
     public void OnPlayerDestroyed()
@@ -41,8 +46,15 @@ public partial class LifeManager : Node
         else
         {
             GD.Print("Game Over!");
+            
             gameoverContainer.Visible = true;
 
         }
+    }
+
+    public void OnRestartButtonPressed()
+    {
+        GD.Print("Reiniciando o jogo...");
+        GetTree().ReloadCurrentScene();
     }
 }

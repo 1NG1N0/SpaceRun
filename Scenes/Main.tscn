@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt60yqon80xpb"]
+[gd_scene load_steps=14 format=3 uid="uid://dt60yqon80xpb"]
 
 [ext_resource type="PackedScene" uid="uid://bbmvtk3jbkxqb" path="res://Scenes/player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://8fwu3ecs54cx" path="res://Scenes/bullet_catcher.tscn" id="2_idj7w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cn1n48va211pr" path="res://Scenes/PointsCounter.cs" id="7_jw32o"]
 [ext_resource type="PackedScene" uid="uid://f3h4lp3p6a3x" path="res://Scenes/ui.tscn" id="8_50glp"]
 [ext_resource type="FontFile" uid="uid://dsx61wy7ucoir" path="res://Assets/Fonts/andina.ttf" id="9_vy5pj"]
+[ext_resource type="Texture2D" uid="uid://c6u7aavj2gghg" path="res://icon.svg" id="10_bmxlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmxlf"]
 bg_color = Color(1, 0, 0, 1)
@@ -54,7 +55,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestartButton" type="Button" parent="GameBoxContainer/GameOverBox"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_bmxlf")
 text = "Restart
@@ -92,18 +92,22 @@ shape = SubResource("RectangleShape2D_rgh2o")
 position = Vector2(527, -276)
 
 [node name="Bunker" parent="." instance=ExtResource("5_pbw6q")]
+texture_filter = 1
 position = Vector2(-433, 149)
 scale = Vector2(4, 4)
 
 [node name="Bunker2" parent="." instance=ExtResource("5_pbw6q")]
+texture_filter = 1
 position = Vector2(-149, 150)
 scale = Vector2(4, 4)
 
 [node name="Bunker3" parent="." instance=ExtResource("5_pbw6q")]
+texture_filter = 1
 position = Vector2(100, 150)
 scale = Vector2(4, 4)
 
 [node name="Bunker4" parent="." instance=ExtResource("5_pbw6q")]
+texture_filter = 1
 position = Vector2(413, 150)
 scale = Vector2(4, 4)
 
@@ -112,6 +116,24 @@ script = ExtResource("6_v1gob")
 
 [node name="PointsCounter" type="Node" parent="."]
 script = ExtResource("7_jw32o")
+
+[node name="MobileInput" type="Node" parent="."]
+
+[node name="esquerdaInput" type="TouchScreenButton" parent="MobileInput"]
+position = Vector2(-563, 221)
+scale = Vector2(1, 0.820312)
+texture_normal = ExtResource("10_bmxlf")
+texture_pressed = ExtResource("10_bmxlf")
+action = "esquerda"
+visibility_mode = 1
+
+[node name="direitaInput" type="TouchScreenButton" parent="MobileInput"]
+position = Vector2(436, 221)
+scale = Vector2(1, 0.820312)
+texture_normal = ExtResource("10_bmxlf")
+texture_pressed = ExtResource("10_bmxlf")
+action = "direita"
+visibility_mode = 1
 
 [connection signal="area_entered" from="Walls/LeftWall" to="InvaderSpawn" method="_on_left_wall_area_entered"]
 [connection signal="area_entered" from="Walls/RightWall" to="InvaderSpawn" method="_on_rigth_wall_area_entered"]

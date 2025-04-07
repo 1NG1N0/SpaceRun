@@ -31,7 +31,6 @@ position = Vector2(0, 10)
 script = ExtResource("3_l1ch6")
 
 [node name="SpawnTimer" parent="ShootPonit" instance=ExtResource("3_ppr3x")]
-wait_time = 2.0
 min_time = 1
 max_time = 3
 

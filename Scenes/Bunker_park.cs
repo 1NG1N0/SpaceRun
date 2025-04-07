@@ -36,6 +36,10 @@ public partial class Bunker_park : Area2D
         if (area is Invader)
         {
             area.QueueFree();
+            if (area is Invader invader)
+            {
+                invader.DestroyInvader(0);
+            }
             //GD.Print("Bunker hit by Invader!");
         }
     }

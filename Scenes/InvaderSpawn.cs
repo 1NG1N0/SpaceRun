@@ -40,6 +40,8 @@ public partial class InvaderSpawn : Node2D
 
     public override void _Ready()
     {
+        invadertotal_counts = Rows * Columns;
+        GD.Print($"Total de invasores esperados: {invadertotal_counts}");
         movement_timer = GetNode<Timer>("MovementTimer");
         shoot_timer = GetNode<Timer>("ShootTimer");
         LeftWall = GetNode<Area2D>("../Walls/LeftWall");
@@ -135,9 +137,10 @@ public partial class InvaderSpawn : Node2D
     private void _on_bottom_wall_area_entered(Node body)
     {
         //GD.Print($"Colisão detectada com: {body.Name}");
-        if (body is Invader)
+        if (body is Invader invader)
         {
             //GD.Print("Game Over!");
+            invader.DestroyInvader(0);
             EmitSignal(nameof(game_lost));
             shoot_timer.Stop();
             movement_timer.Stop();
@@ -160,8 +163,8 @@ public partial class InvaderSpawn : Node2D
 
     private void Invasordestr(int points)
     {
-        EmitSignal(nameof(InvaderDestroyed), points);
         invaderDestroiyed_count++;
+        EmitSignal(nameof(InvaderDestroyed), points);
         if (invaderDestroiyed_count == invadertotal_counts)
         {
             //GD.Print("Game Won!");

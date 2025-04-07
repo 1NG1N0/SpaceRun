@@ -73,13 +73,20 @@ public partial class Invader : Area2D
             //QueueFree();
         }
     }
+
     private void OnAnimationFinished(StringName animName)
     {
         if (animName == "destroy")
         {
             //GD.Print("Invader destroyed!");
-            QueueFree(); // Remove o invasor após a animação de destruição
-            EmitSignal(nameof(Invaderdestruido), config.points); // Emite o sinal com os pontos
+            DestroyInvader(config.points); // Chama o método para destruir o invasor
         }
+    }
+
+    public void DestroyInvader(int points)
+    {
+        GD.Print($"Invasor destruído. Emitindo evento Invaderdestruido com {points} pontos.");
+        EmitSignal(nameof(Invaderdestruido), points);
+        QueueFree(); // Remove o invasor da cena
     }
 }

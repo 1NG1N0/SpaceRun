@@ -78,6 +78,7 @@ public partial class Ui : CanvasLayer
             life_texture_rect.Texture = Life_texture; // Define a textura
             lifeContainer.AddChild(life_texture_rect); // Adiciona o TextureRect ao container
         }
+        
     }
 
     private void UpdatePointsLabel(int points)
@@ -97,6 +98,8 @@ public partial class Ui : CanvasLayer
         gameoverLabel.Text = "YOU WON!";
         gameoverLabel.AddThemeColorOverride("font_color", new Color(0, 1, 0)); // Verde
         restartButton.Text = "RESTART";
+        invaderSpawn.GetNode<Timer>("MovementTimer").Stop();
+        invaderSpawn.GetNode<Timer>("ShootTimer").Stop();
     }
     private void OnRestartButtonPressed()
     {
