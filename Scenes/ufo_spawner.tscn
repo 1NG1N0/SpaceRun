@@ -9,4 +9,4 @@ script = ExtResource("1_typyy")
 UfoScene = ExtResource("2_tsh2j")
 
 [node name="SpawnTimer" parent="." instance=ExtResource("3_eydok")]
-wait_time = 5.0
+wait_time = 8.0

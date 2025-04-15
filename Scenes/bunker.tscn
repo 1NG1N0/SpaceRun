@@ -30,12 +30,12 @@ size = Vector2(3.75, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u456p"]
 size = Vector2(7.75, 8)
 
-[node name="Bunker" type="Node2D"]
+[node name="Bunker" type="Node2D" groups=["Bunkers"]]
 
 [node name="BunkerRight" type="Node2D" parent="."]
 position = Vector2(4, 0.25)
 
-[node name="TopLeft" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite")]
+[node name="TopLeft" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_gio65")
@@ -49,7 +49,7 @@ shape = SubResource("RectangleShape2D_lwc5i")
 texture_filter = 1
 texture = ExtResource("1_xxrj8")
 
-[node name="TopRigth" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite")]
+[node name="TopRigth" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 texture_filter = 1
 position = Vector2(8, 1)
 collision_layer = 16
@@ -64,7 +64,7 @@ shape = SubResource("RectangleShape2D_8imk4")
 [node name="SpriteTopRigth" type="Sprite2D" parent="BunkerRight/TopRigth"]
 texture = ExtResource("2_qv8o1")
 
-[node name="BottomLeft" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite")]
+[node name="BottomLeft" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 position = Vector2(2.25, 7.5)
 collision_layer = 16
 collision_mask = 14
@@ -78,7 +78,7 @@ shape = SubResource("RectangleShape2D_2hvqq")
 [node name="SpriteBottomLeft" type="Sprite2D" parent="BunkerRight/BottomLeft"]
 texture = ExtResource("3_gio65")
 
-[node name="BottomRigth" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite")]
+[node name="BottomRigth" type="Area2D" parent="BunkerRight" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 position = Vector2(8, 8)
 collision_layer = 16
 collision_mask = 14
@@ -97,7 +97,7 @@ texture = ExtResource("4_qv8o1")
 position = Vector2(-4, 0.25)
 scale = Vector2(-1, 1)
 
-[node name="TopLeft" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite")]
+[node name="TopLeft" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 collision_layer = 16
 collision_mask = 14
 script = ExtResource("1_gio65")
@@ -111,7 +111,7 @@ shape = SubResource("RectangleShape2D_lwc5i")
 texture_filter = 1
 texture = ExtResource("1_xxrj8")
 
-[node name="TopRigth" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite")]
+[node name="TopRigth" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 texture_filter = 1
 position = Vector2(8, 1)
 collision_layer = 16
@@ -126,7 +126,7 @@ shape = SubResource("RectangleShape2D_8imk4")
 [node name="SpriteTopRigth" type="Sprite2D" parent="BunkerLeft/TopRigth"]
 texture = ExtResource("2_qv8o1")
 
-[node name="BottomLeft" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite")]
+[node name="BottomLeft" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 position = Vector2(2.25, 7.5)
 collision_layer = 16
 collision_mask = 14
@@ -140,7 +140,7 @@ shape = SubResource("RectangleShape2D_2hvqq")
 [node name="SpriteBottomLeft" type="Sprite2D" parent="BunkerLeft/BottomLeft"]
 texture = ExtResource("3_gio65")
 
-[node name="BottomRigth" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite")]
+[node name="BottomRigth" type="Area2D" parent="BunkerLeft" node_paths=PackedStringArray("sprite") groups=["BunkerPart"]]
 position = Vector2(8, 8)
 collision_layer = 16
 collision_mask = 14

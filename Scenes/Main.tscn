@@ -33,6 +33,7 @@ position = Vector2(0, 300)
 
 [node name="InvaderSpawn" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(0, -190)
+CurrentPhaseType = 4
 
 [node name="GameBoxContainer" type="CenterContainer" parent="."]
 visible = false

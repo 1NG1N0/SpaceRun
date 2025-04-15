@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsyd42neejg2i"]
+
+[ext_resource type="PackedScene" uid="uid://dt60yqon80xpb" path="res://Scenes/Main.tscn" id="1_348ia"]
+
+[node name="Node2D" instance=ExtResource("1_348ia")]
+
+[node name="InvaderSpawn" parent="." index="4"]
+CurrentPhaseType = 1
